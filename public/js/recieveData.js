@@ -12,7 +12,6 @@ function cookieParser(cookie) {
 var tokenFromCookie = cookieParser(document.cookie)
 
 var mac        = document.getElementById('mac')
-var ul         = document.getElementById('log')
 var closeBtn   = document.getElementById('closeBtn')
 
 var url          = 'http://demo20.cassia.pro/api/gatt/nodes/?mac=' + MAC
@@ -33,7 +32,8 @@ es.onopen = () => {
 
 es.onmessage = event => {
   var data = JSON.parse(event.data)
-  console.log(data)
+  var p_data = data.value
+  init(p_data)
 }
 
 closeBtn.addEventListener('click', () => {
