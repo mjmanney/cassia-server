@@ -39,7 +39,7 @@ es.onmessage = event => {
     ul.appendChild(li)
     li.addEventListener('click', () => {
       let addr = device.bdaddrs[0].bdaddr
-	    let type = device.bdaddrs[0].bdaddrType
+	  let type = device.bdaddrs[0].bdaddrType
       mac.value = addr
     })
     li.innerHTML = device.name

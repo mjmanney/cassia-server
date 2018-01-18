@@ -16,6 +16,7 @@ var verifyToken  = require('./middleware/verifyToken')
 var logRequest   = require('./middleware/logRequest')
 
 var connect      = require('../api/init')
+var disconnect   = require('../api/gap/nodes/disconnect')
 var getDevices   = require('../api/gap/nodes/getDevices')
 
 
@@ -51,6 +52,8 @@ router.get('/api/gap/nodes/scan',(req, res) => {
 })
 
 router.post('/api/gap/nodes/connect', connect)
+
+router.get('/api/gap/nodes/disconnect', disconnect)
 
 router.get('/api/gap/nodes/deviceList', getDevices)
 

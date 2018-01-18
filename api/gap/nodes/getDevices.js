@@ -26,7 +26,15 @@ var getDevices = (req, res) => {
 		if(isEmpty) res.send('<h1>No devices connected.</h1>')
 		else {
 			var numOfDevices = deviceList.nodes.length
-			res.send("<h1>There are " + numOfDevices + " devices connected.</h1>")
+			var str          = "<h1>There are " + numOfDevices + " devices connected. </h1>"
+			var list         = ""
+			for(var i = 0; i < numOfDevices; i++){
+				
+				var mac = deviceList.nodes[i].bdaddrs.bdaddr
+				var formWrapper  = "<form action='/api/gap/nodes/disconnect' method='get'><input id='mac' type='text' name='mac' value='" + mac + "'><input id='disconnectBtn' type='submit' name='submit' value='Disconnect'></form>"
+				list += "<li>" + formWrapper + "</li>"
+			}
+			res.send(str + "<br><ul>" + list + "</ul>")
 		}
 	}, onFailure => {
 		console.log(onFailure)
