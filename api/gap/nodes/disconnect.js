@@ -1,4 +1,5 @@
 var request = require('request')
+var path    = require('path')
 var G       = require('../../../G')
 
 var disconnect = (req, res) => {
@@ -13,13 +14,6 @@ var disconnect = (req, res) => {
           + '/connection?mac=' + MAC
           + '&access_token=' + token,
     method: 'DELETE'
-	
-	/*
-	form: {
-		// Bluetooth address type
-		type: 'random'
-	}
-	*/
   }
   
   var disconnectPromise = new Promise((resolve, reject) => {
@@ -32,8 +26,8 @@ var disconnect = (req, res) => {
       }
     })
   }).then(onSuccess => {
-    console.log('Disconnected ' + onSuccess)
-    res.status(200).send('KDC is disconnected')
+    console.log('KDC disconnected.')
+    res.redirect('/api/gap/nodes/deviceList')
   }, onFailure => {
     console.log('Failed to disconnect: ' + onFailure)
     res.status(500).send('An error occured.')

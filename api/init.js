@@ -77,7 +77,7 @@ var init = (req, res) => {
 		console.log("P2: Requesting write instruction...")
 		return new Promise((resolve, reject) => {
 			request(options_write, (err, res, body) => {
-				if(err || body == 'Not Found') reject(err || body)
+				if(err || body == 'Not Found' || body == 'parameter invalid') reject(err || body)
 				else resolve(body)
 			})
 		})
@@ -88,7 +88,10 @@ var init = (req, res) => {
 		console.log("Write instruction: " + onWrite)
 		res.sendFile(path.join(__dirname, '../public/html/recieveData.html'))
 	})
-	.catch(e => console.log(e))
+	.catch(e => {
+		console.log(e)
+		res.sendFile(path.join(__dirname, '../public/html/error.html'))
+	})
 }
 
 module.exports = init

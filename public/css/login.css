@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+}
+form {
+  border: 1px solid #99cc33;
+  border-radius: 6px;
+  overflow: hidden;
+  max-width: 600px;
+  margin: 20px auto 0 auto;
+  padding: 20px;
+}
+
+#logo {
+  width: 300px;
+  height: 100px;
+  display: block;
+  margin: auto;
+}
+
+#user:focus, #secret:focus{
+  outline: none !important;
+  border: 1px solid #99cc33;
+}
+
+#verify{
+  background-color: #99cc33;
+  color: white;
+  border: white;
+}
+
+#verify:hover {
+  background-color: #7aa22a;
+}
