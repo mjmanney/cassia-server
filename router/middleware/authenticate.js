@@ -46,7 +46,7 @@ var authenticate = (req, res) => {
     res.redirect('/')
   }, message => {
     console.log('Token request failed: ' + message)
-    res.send(message)
+    res.render('login', {error: message})
   })
 }
 

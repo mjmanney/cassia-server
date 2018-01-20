@@ -12,6 +12,10 @@ const G          = require('./G')
 const PORT       = G.PORT
 const MAC        = G.MAC.C1000 //E1000
 //
+//  TEMPLATE ENGINE
+//
+app.set('view engine', 'pug')
+//
 //  MIDDLEWARE
 //
 app.use(express.static('public'))

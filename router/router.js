@@ -33,15 +33,21 @@ router.use('/api/gap/', verifyToken)
 //
 //  ROUTES
 //
-router.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, '../public/html/index.html'))
+router.route('/')
+      .get((req, res) => {
+        res.render('login')
+      //res.sendFile(path.join(__dirname, '../public/html/index.html'))
       })
+      .post(authenticate)
 
-router.route('/api/authenticate')
+/*
+router.route('/authenticate')
       .get((req, res) => {
 	       res.sendFile(path.join(__dirname, '../public/html/authenticate.html'))
        })
        .post(authenticate)
+*/
+
 
 router.get('/api/gap/nodes', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/api.html'))
