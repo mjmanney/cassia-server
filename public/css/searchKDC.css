@@ -1,0 +1,30 @@
+.scanner{
+  display: inline-block;
+  margin: 0 20px 50px 20px;
+  width: 100px;
+  height: 185px;
+  text-align: center;
+  background-image: url('../../src/img/kdc270.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.scanner:hover {
+  cursor: pointer;
+}
+
+.info {
+  font-weight: bold;
+  position: relative;
+  top: 185px;
+}
+
+#connectBtn:disabled {
+  background-color: gray;
+  border-color: gray;
+}
+
+.input[radio]:selected {
+  border: 1px solid #99cc33;
+}

@@ -1,0 +1,19 @@
+extends layout.pug
+
+append stylesheets
+  link(href='/css/searchKDC.css' rel='stylesheet' type='text/css')
+
+block content
+  body
+    .container
+      .row
+        .twelve.columns
+          h1 Router is searching for KDC scanners.
+          p#status
+          input(type='button' name='closeEventSource' value='Stop Search')#closeBtn
+          form(method='post' action='/api/connect').connect
+            input(type='hidden' name='mac' value='')#mac
+            input(type='submit' name='submit' value='Connect' disabled)#connectBtn.button-primary
+      .row
+        .twelve.columns#results
+  script(src='/js/search.js' type='text/javascript')

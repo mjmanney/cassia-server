@@ -1,15 +1,20 @@
 const MAC  = 'CC:1B:E0:E0:5F:E0'
 
 function cookieParser(cookie) {
-  if(cookie.search(';') != -1){
-    console.log('There are multiple cookies in the tray')
-  } else {
-    var crumb = cookie.split('=')
-    return crumb[1]
+  var result = {}
+  var c = cookie.split(';')
+  var len = c.length
+
+  for(var i = 0; i < len; i++) {
+    var subArr = c[i].split('=')
+    result[subArr[0]] = subArr[1]
   }
+
+  return result
 }
 
-var tokenFromCookie = cookieParser(document.cookie)
+var cookieObj = cookieParser(document.cookie)
+var tokenFromCookie = cookieObj[' access_token']
 
 var mac        = document.getElementById('mac')
 var closeBtn   = document.getElementById('closeBtn')
