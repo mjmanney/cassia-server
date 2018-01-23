@@ -43,7 +43,8 @@ var authenticate = (req, res) => {
     console.log('Success!')
     token.setToken(authToken)
     res.cookie('access_token', token.ACCESS_TOKEN)
-    res.redirect('/')
+    res.cookie('user', req.body.id)
+    res.redirect('/index')
   }, message => {
     console.log('Token request failed: ' + message)
     res.render('login', {error: message})

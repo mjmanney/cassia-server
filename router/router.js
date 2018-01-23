@@ -29,35 +29,39 @@ const MAC        = G.MAC.C1000 // E1000
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({extended: true}))
 router.use(logRequest)
-router.use('/api/gap/', verifyToken)
+router.use('/api/', verifyToken)
 //
 //  ROUTES
 //
 router.route('/')
       .get((req, res) => {
         res.render('login')
-      //res.sendFile(path.join(__dirname, '../public/html/index.html'))
       })
       .post(authenticate)
 
+router.get('/index', (req, res) => {
+  res.render('index')
+})
+
 /*
-router.route('/authenticate')
-      .get((req, res) => {
-	       res.sendFile(path.join(__dirname, '../public/html/authenticate.html'))
-       })
-       .post(authenticate)
+router.get('/api/index', (req, res) => {
+  res.render('index')
+})
+
 */
 
-
+/*
 router.get('/api/gap/nodes', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/api.html'))
 })
+*/
 
-router.get('/api/gap/nodes/scan',(req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/scan.html'))
+router.get('/api/search',(req, res) => {
+  res.render('searchKDC')
+  //res.sendFile(path.join(__dirname, '../public/html/scan.html'))
 })
 
-router.post('/api/gap/nodes/connect', connect)
+router.post('/api/connect', connect)
 
 router.get('/api/gap/nodes/disconnect', disconnect)
 

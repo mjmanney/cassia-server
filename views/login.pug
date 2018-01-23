@@ -1,12 +1,9 @@
-html
-  head
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1')
-    title KDCassia
-    link(href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css')
-    link(href='../src/libs/Skeleton-2.0.4/normalize.css'        rel='stylesheet' type='text/css')
-    link(href='../src/libs/Skeleton-2.0.4/skeleton.css'         rel='stylesheet' type='text/css')
-    link(href='/css/login.css'                                  rel='stylesheet' type='text/css')
+extends layout.pug
+
+append stylesheets
+  link(href='/css/login.css' rel='stylesheet' type='text/css')
+
+block content
   body
     form(method='post' action='/' autocomplete='off')
       img(id='logo' src='../src/img/logo.jpeg' alt='KOAMTAC')
@@ -23,4 +20,5 @@ html
           input#verify.u-full-width(type='submit' value='Verify')
       .row
         .twelve.columns
-          p.errorStatus= error
+          if error
+            p.errorStatus #{error}
