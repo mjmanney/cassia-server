@@ -29,7 +29,7 @@ const MAC        = G.MAC.C1000 // E1000
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({extended: true}))
 router.use(logRequest)
-router.use('/api/', verifyToken)
+router.use('/', verifyToken)
 //
 //  ROUTES
 //
@@ -63,9 +63,9 @@ router.get('/api/search',(req, res) => {
 
 router.post('/api/connect', connect)
 
-router.get('/api/gap/nodes/disconnect', disconnect)
+router.get('/api/disconnect', disconnect)
 
-router.get('/api/gap/nodes/deviceList', getDevices)
+router.get('/api/deviceList', getDevices)
 
 router.get('/data', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/html/recieveData.html'))

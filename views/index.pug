@@ -1,31 +1,32 @@
 extends layout.pug
 
 append stylesheets
-  link(href='/css/index.css' rel='stylesheet' type='text/css')
+	link(href='/css/index.css' rel='stylesheet' type='text/css')
+	link(href='/css/navbar.css' rel='stylesheet' type='text/css')
 
 block content
-  body
-    .container
-      .ro
-        .six.columns
-          #icon
-        .six.columns
-          h2 Dashboard
-          p Connect one or more KDC devices to begin scanning.
-          | Remember to set the KDC data format to packet data before connecting.
-      br
-      .row
-        .three.columns
-          h4 Search for nearby KDC scanners.
-          a(href='api/search').button.button-primary Start Scan
-        .three.columns
-          h4 View connected devices.
-          a(href='api/deviceList').button.button-primary Show KDCs
-        .three.columns
-          h4 Use another restful api.
-          a(href='#').button.button-primary More Buttons
-        .three.columns
-          h4 This api will do amazing things.
-          a(href='#').button.button-primary Begin Process
-  script(src='/js/index.js' type='text/javascript')
+	body.container
+		include navbar
+		.row
+			.six.columns
+				#icon
+			.six.columns
+				h2 Dashboard
+				p Connect one or more KDC devices to begin scanning.
+				| Remember to set the KDC data format to packet data before connecting.
+			br
+		.row#apis
+			.three.columns
+				h5 Search for nearby KDC scanners.
+				a(href='api/search').button.button-primary Start Scan
+			.three.columns
+				h5 View connected devices.
+				a(href='api/deviceList').button.button-primary Show KDCs
+			.three.columns
+				h5 Use another restful api.
+				a(href='#').button.button-primary More Buttons
+			.three.columns
+				h5 This api will do amazing things.
+				a(href='#').button.button-primary Begin Process
+	script(src='/js/index.js' type='text/javascript')
         

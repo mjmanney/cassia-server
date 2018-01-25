@@ -27,7 +27,7 @@ var disconnect = (req, res) => {
     })
   }).then(onSuccess => {
     console.log('KDC disconnected.')
-    res.redirect('/api/gap/nodes/deviceList')
+    res.redirect('/api/deviceList')
   }, onFailure => {
     console.log('Failed to disconnect: ' + onFailure)
     res.status(500).send('An error occured.')

@@ -20,6 +20,11 @@
   top: 185px;
 }
 
+#connectBtn {
+	background-color:#99cc33;
+	border: 1px solid #99cc33;
+}
+
 #connectBtn:disabled {
   background-color: gray;
   border-color: gray;
