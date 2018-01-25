@@ -26,7 +26,7 @@ the behavior of the router including:
   -  Passing necessary data
 
 This document explains the flow and logic of the server program.
----------------
+
 SERVER JS
 ---------------
 Adds the express, router, and body-parser module.
@@ -48,7 +48,7 @@ Finally, the app is created with the following as middleware functions:
       body of the response in JSON format.
   3.  TODO URL ENCODED
   4.  The server starts and listens for requests on the specified port.
----------------
+
 ROUTER JS
 ---------------
 Adds the express, router, body-parser, and authenticate module.
@@ -63,7 +63,7 @@ validation form is sent to the client.  However on a POST request
 the form is submitted and the authenticate module is passed the
 user parameters.
 TODO user validation.
----------------
+
 AUTHENTICATE JS
 ---------------
 This module executes when the user enters their credentials on
@@ -78,7 +78,7 @@ variable on the server as well as stored in a cookie on the client.
 
 The cookie was set so the token can be included in the SSE call
 when scanning for BLE devices in scan.js.
----------------
+
 SCAN.JS
 ---------------
 This is client side JavaScript that creates a new EventSource
@@ -92,7 +92,7 @@ name to only display KDC devices.  When a KDC devices is
 found it is added to the list.  By clicking on the KDC its
 BT MAC address is added to the form and ready to be submitted
 for connection.
----------------
+
 CONNECT.JS
 ---------------
 This module establishes a connection with the KDC device.
