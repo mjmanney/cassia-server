@@ -2,20 +2,24 @@
 	color: #99cc33;
 }
 
-#list {
+#deviceList {
 	list-style-type: none;
 
 }
 
-#list .device{
-		text-align: center;
+#deviceItem {
+	text-align: center;
+	list-style-type: none;
 }
 
-#list .device form .mac {
-	 margin-right: 10px;
-	 border: 1px solid lightgray;
+#mac {
+	margin-right: 10px;
+	border: none;
+	
+	font-weight: bold;
+	font-size: 1.5em;
 }
 
-#list .device form .disconnectBtn {
+#disconnectBtn {
 	border-color: #99cc33;
 }
