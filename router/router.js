@@ -9,8 +9,6 @@ var bodyParser   = require('body-parser')
 var app          = express()
 var router       = express.Router()
 
-var notFound     = require('../errors/notFound')
-
 var authenticate = require('./middleware/authenticate')
 var verifyToken  = require('./middleware/verifyToken')
 var logRequest   = require('./middleware/logRequest')
