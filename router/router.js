@@ -47,6 +47,6 @@ router.get('/api/disconnect', disconnect)
 
 router.get('/api/deviceList', getDevices)
 
-router.get('*', notFound)
+router.get('*', (req, res) => { res.render('404') })
 
 module.exports = router

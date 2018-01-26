@@ -25,6 +25,15 @@ var url          = 'http://demo20.cassia.pro/api/gatt/nodes/?mac=' + MAC
 var es           = new EventSource(url)
 var isOpenStream = false
 
+var ul         = document.getElementById('log')
+
+function addItem(data) {
+	var li = document.createElement("li")
+	li.className = 'data'
+	li.innerHTML = data
+	ul.appendChild(li)
+}
+
 es.onerror = (error) => {
   document.getElementById("status").innerHTML += "An error occured." + "<br>"
   console.log(error)
