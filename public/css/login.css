@@ -34,3 +34,7 @@ form {
 #verify:hover {
   background-color: #7aa22a;
 }
+
+.errorStatus {
+  color: red;
+}

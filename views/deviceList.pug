@@ -1,0 +1,24 @@
+extends layout.pug
+
+append stylesheets
+	link(rel='stylesheet' href='/css/navbar.css' type='text/css')
+	link(rel='stylesheet' href='/css/deviceList.css' type='text/css')
+
+block content
+	body.container
+		include navbar
+		- num = numOfDevice ? numOfDevice : false
+		if num 
+			h1 There are <span class="green"> #{numOfDevice} </span> devices connected.
+		else
+			h1 No connections.
+		ul#deviceList
+		each val in deviceList
+			- device = val
+			each node in device
+				- mac = node.bdaddrs.bdaddr
+				li#deviceItem
+					form(action='/api/disconnect' method='get')
+						input#mac(value=mac type='text' name='mac' readonly)
+						input#disconnectBtn(type='submit' name='submit' value='Disconnect')
+					

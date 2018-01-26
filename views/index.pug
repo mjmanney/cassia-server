@@ -1,0 +1,32 @@
+extends layout.pug
+
+append stylesheets
+	link(href='/css/index.css' rel='stylesheet' type='text/css')
+	link(href='/css/navbar.css' rel='stylesheet' type='text/css')
+
+block content
+	body.container
+		include navbar
+		.row
+			.six.columns
+				#icon
+			.six.columns
+				h2 Dashboard
+				p Connect one or more KDC devices to begin scanning.
+				| Remember to set the KDC data format to packet data before connecting.
+			br
+		.row#apis
+			.three.columns
+				a(href='api/search').button.button-primary Search KDCs
+				p Search for nearby KDC scanners.
+			.three.columns
+				a(href='api/deviceList').button.button-primary View KDCs
+				p View connected devices.
+			.three.columns
+				a(href='api/connect').button.button-primary Notifications
+				p Start scanning.
+			.three.columns
+				a(href='#').button.button-primary Process
+				p Initialize.
+	script(src='/js/index.js' type='text/javascript')
+        

@@ -29,41 +29,24 @@ const MAC        = G.MAC.C1000 // E1000
 router.use(bodyParser.json())
 router.use(bodyParser.urlencoded({extended: true}))
 router.use(logRequest)
-router.use('/api/gap/', verifyToken)
+router.use('/', verifyToken)
 //
 //  ROUTES
 //
-router.get('/', (req, res) => {
-        res.sendFile(path.join(__dirname, '../public/html/index.html'))
-      })
+router.get('/', (req, res) => { res.render('login') })
+router.post('/', authenticate)
 
-router.route('/api/authenticate')
-      .get((req, res) => {
-	       res.sendFile(path.join(__dirname, '../public/html/authenticate.html'))
-       })
-       .post(authenticate)
+router.get('/index', (req, res) => { res.render('index') })
 
-router.get('/api/gap/nodes', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/api.html'))
-})
+router.get('/api/search',(req, res) => { res.render('searchKDC') })
 
-router.get('/api/gap/nodes/scan',(req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/scan.html'))
-})
+router.get('/api/connect', (req, res) => { res.render('notificationCenter') })
+router.post('/api/connect', connect)
 
-router.post('/api/gap/nodes/connect', connect)
+router.get('/api/disconnect', disconnect)
 
-router.get('/api/gap/nodes/disconnect', disconnect)
+router.get('/api/deviceList', getDevices)
 
-router.get('/api/gap/nodes/deviceList', getDevices)
-
-router.get('/data', (req, res) => {
-  res.sendFile(path.join(__dirname, '../public/html/recieveData.html'))
-})
-
-//
-//  404 Error
-//
-router.get('*', notFound)
+router.get('*', (req, res) => { res.render('404') })
 
 module.exports = router

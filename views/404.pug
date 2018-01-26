@@ -1,0 +1,11 @@
+extends layout.pug
+
+append stylesheets
+	link(href='/css/navbar.css' rel='stylesheet' type='text/css')
+
+block content
+	body.container
+		include navbar
+		.row
+			.twelve.columns
+				h1 404 Page not found.

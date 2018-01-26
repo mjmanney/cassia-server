@@ -1,0 +1,25 @@
+.green {
+	color: #99cc33;
+}
+
+#deviceList {
+	list-style-type: none;
+
+}
+
+#deviceItem {
+	text-align: center;
+	list-style-type: none;
+}
+
+#mac {
+	margin-right: 10px;
+	border: none;
+	
+	font-weight: bold;
+	font-size: 1.5em;
+}
+
+#disconnectBtn {
+	border-color: #99cc33;
+}

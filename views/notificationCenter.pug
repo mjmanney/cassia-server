@@ -1,0 +1,18 @@
+extends layout.pug
+
+append stylesheets
+	link(href='/css/notificationCenter.css' rel='stylesheet' type='text/css')
+	link(href='/css/navbar.css' rel='stylesheet' type='text/css')
+
+block content
+	body.container
+		include navbar
+		.row
+			.twelve.columns
+				h1 Notification Center
+				p Ensure the KDC is properly connected before scanning.
+				input#closeBtn(type='button' name='closeEventSource' value='Stop Recieving Messages')
+				p#status
+				ul#log
+		script(src='/js/packetParser.js' type='text/javascript')
+		script(src='/js/recieveData.js' type='text/javascript') 

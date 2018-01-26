@@ -1,0 +1,24 @@
+extends layout.pug
+
+append stylesheets
+  link(href='/css/login.css' rel='stylesheet' type='text/css')
+
+block content
+  body
+    form(method='post' action='/' autocomplete='off')
+      img(id='logo' src='../src/img/logo.jpeg' alt='KOAMTAC')
+      .row
+        .twelve.columns
+          label(for='user') User
+          input#user.u-full-width(type='text' name='id' value='' required)
+      .row
+        .twelve.columns
+          label(for='secret') Secret
+          input#secret.u-full-width(type='password' name='secret' value='' required)
+      .row
+        .twelve.columns
+          input#verify.u-full-width(type='submit' value='Verify')
+      .row
+        .twelve.columns
+          if error
+            p.errorStatus #{error}
