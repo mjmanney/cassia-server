@@ -86,7 +86,7 @@ var init = (req, res) => {
 	//  IF BOTH PROMISES RESOLVE, SEND HTML FILE WHICH LISTENS FROM NOTIFICATIONS FROM KDC
 	var p3 = p2.then(onWrite => {
 		console.log("Write instruction: " + onWrite)
-		res.sendFile(path.join(__dirname, '../public/html/recieveData.html'))
+		res.render('notificationCenter')
 	})
 	.catch(e => {
 		console.log(e)

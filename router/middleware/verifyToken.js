@@ -9,7 +9,7 @@ var verifyToken = (req, res, next) => {
     res.send('Access token is required to make API calls.')
   }
   else {
-    console.log('Middleware sees token as: ' + token)
+    //console.log('Middleware sees token as: ' + token)
     next()
   }
 }
